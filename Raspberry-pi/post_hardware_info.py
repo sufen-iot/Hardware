@@ -2,24 +2,28 @@ import json
 import time
 import os
 import requests
+import parse
+import hardware
 
 hardware_url = "https://api.plebea.site/hardware"
 
 def post_hardware_info():
-    #result = os.system('archey')
     
-    cpu = ""
-    ram = ""
-    os = ""
-    kernel = ""
-    uptime = ""
+    
+    '''info = {
+        'cpu': hardware.cpu_info(),
+        'ram': hardware.ram_info(),
+        'os': hardware.os_info(),
+        'kernel': hardware.kernel_info(),
+        'uptime': hardware.uptime_info()
+    }'''
     
     info = {
-        'cpu': cpu,
-        'ram': ram,
-        'os': os,
-        'kernel': kernel,
-        'uptime': uptime
+        "cpu": "cpu",
+        "ram": "ram",
+        "os": "os",
+        "kernel": "kernel",
+        "uptime": "uptime"
     }
     
     json_data = json.loads(info)
