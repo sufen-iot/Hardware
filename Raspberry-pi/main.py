@@ -15,7 +15,7 @@ board = Arduino("/dev/ttyACM0")
 #camera.resolution = (1920, 1080)
 
 
-def get_sensor_info():
+def post_sensor_info():
     
     heading = 0
     latitude = 0.0
@@ -29,19 +29,19 @@ def get_sensor_info():
         "img": base64_img
     }
     
-    json_data = json.loads(info)
+    json_data = json.dumps(info, indent=2)
     
     headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
     requests.post(hardware_url, data=json_data, headers=headers)
     
 def get_camera():
     #camera.capture('image.png')
-    print("hi")
+    print("check")
     
 while(1):
     a = input("Press enter to take a picture")
     if a == 1:
-        get_sensor_info()
         get_camera()
+        post_sensor_info()
     else:
         continue

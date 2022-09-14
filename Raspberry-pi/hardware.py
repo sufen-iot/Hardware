@@ -1,6 +1,5 @@
 import os
 
-
 def cpu_info():
     cpu_info = os.popen("grep ^'model name' /proc/cpuinfo").read()
     cpu_info = cpu_info.replace('model name', '').split(':')
