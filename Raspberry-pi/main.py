@@ -12,7 +12,7 @@ hardware_url = "https://api.plebea.site/hardware"
 board = Arduino("/dev/ttyACM0")
 
 #camera = picamera.PiCamera()
-#camera.resolution = (1920, 1080)
+#camera.resolution = (600, 600)
 
 
 def post_sensor_info():
