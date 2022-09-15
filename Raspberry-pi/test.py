@@ -1,13 +1,10 @@
-import os
-import math
+import base64
+from picamera import *
 
-MemTotal = os.popen("grep ^'MemTotal' /proc/meminfo").read()
-MemFree = os.popen("grep ^'MemFree' /proc/meminfo").read()
+camera = PiCamera()
+camera.resolution = (600, 600)
+camera.capture('/home/pi/image.png')
 
-MemTotal = MemTotal.replace("MemTotal:","").replace('kB','').replace(" ",'')
-MemTotal =  int(MemTotal) / float(1000000)
-print(MemTotal)
-
-MemFree = MemFree.replace("MemFree:","").replace('kB','').replace(' ','')
-MemFree = int(MemFree) / float(1000000)
-print("{}GB / {}GB".format(round(MemTotal,1), round(round(MemTotal,4) - round(MemFree,4), 2)))
+with open("/home/pi/image.png", "rb") as img_file:
+    base64_string = base64.b64encode(img_file.read())
+print(base64_string.decode('utf-8'))
