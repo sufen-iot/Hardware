@@ -8,7 +8,6 @@ from pyfirmata import Arduino, util
 #import picamera
 
 info_url  = "https://api.plebea.site/accident"
-hardware_url = "https://api.plebea.site/hardware"
 board = Arduino("/dev/ttyACM0")
 
 #camera = picamera.PiCamera()
