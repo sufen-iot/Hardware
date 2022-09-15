@@ -19,7 +19,7 @@ def post_hardware_info():
     
     json_data =json.dumps(info, indent=2) #json 데이터로 가공
     
-    headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+    headers = {'Content-type': 'application/json', 'Accept': 'text/plain'} #post 전송을 위한 http 헤
     requests.post(hardware_url, data=json_data, headers=headers) #post로 전송
     
 while(1): #5분 간격으로 하드웨어 정보 전송
